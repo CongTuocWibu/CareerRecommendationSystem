@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-Fri Jun 05 13:46:18 NZST 2026:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.17.1.0 - (1913217): instance a816c00e-019e-9575-afd2-00000e8ed7c0 
+Fri Jun 05 14:27:11 NZST 2026:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.17.1.0 - (1913217): instance a816c00e-019e-959b-1be3-00000c9e4920 
 on database directory D:\Java\fa\CareerRecommendationSystem\careerDB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@105be200 
 Loaded from file:/C:/Users/tiend/.m2/repository/org/apache/derby/derby/10.17.1.0/derby-10.17.1.0.jar
 java.vendor=Eclipse Adoptium

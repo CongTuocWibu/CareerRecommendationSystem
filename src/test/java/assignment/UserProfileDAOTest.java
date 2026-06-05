@@ -9,13 +9,6 @@ import static org.junit.Assert.*;
 
 import java.util.Arrays;
 
-/**
- * Database tests for UserProfileDAO.
- *
- * These run against the embedded Derby database (created automatically by
- * DBManager). Each test inserts its own row and removes it again in tearDown,
- * so the tests are independent and repeatable.
- */
 public class UserProfileDAOTest {
 
     private UserProfileDAO dao;
@@ -28,7 +21,7 @@ public class UserProfileDAOTest {
 
     @After
     public void tearDown() {
-        // Clean up whatever this test inserted.
+
         if (insertedId != -1) {
             dao.delete(insertedId);
             insertedId = -1;

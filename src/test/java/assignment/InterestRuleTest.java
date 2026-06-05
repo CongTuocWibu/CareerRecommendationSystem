@@ -6,12 +6,7 @@ import static org.junit.Assert.*;
 
 import java.util.Arrays;
 
-/**
- * Unit tests for the InterestRule business logic.
- *
- * Awards 15 points when one of the user's stated interests matches the
- * career name; 0 otherwise.
- */
+
 public class InterestRuleTest {
 
     private InterestRule rule;

@@ -7,12 +7,7 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-/**
- * Unit tests for the EducationRule business logic.
- *
- * The education score does not depend on the career, so a simple dummy
- * career is reused for every case.
- */
+
 public class EducationRuleTest {
 
     private EducationRule rule;

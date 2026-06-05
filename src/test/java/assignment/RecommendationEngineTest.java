@@ -8,10 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Unit tests for the RecommendationEngine — the core business logic that
- * scores every career with every rule and returns a ranked list.
- */
+
 public class RecommendationEngineTest {
 
     private RecommendationEngine engine;
@@ -22,12 +19,10 @@ public class RecommendationEngineTest {
         rules.add(new SkillRule());
         rules.add(new InterestRule());
         rules.add(new EducationRule());
-        // Uses the five predefined IT careers.
         engine = new RecommendationEngine(rules);
     }
 
     private UserProfile softwareDevProfile() {
-        // Strong match for "Software Developer".
         return new UserProfile(
                 "Bachelor",
                 Arrays.asList("Java", "Python", "SQL", "Git", "OOP"),

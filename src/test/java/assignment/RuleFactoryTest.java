@@ -5,10 +5,7 @@ import static org.junit.Assert.*;
 
 import java.util.List;
 
-/**
- * Unit tests for the RuleFactory (Factory pattern).
- * Verifies the factory returns the correct concrete rule for each id.
- */
+
 public class RuleFactoryTest {
 
     @Test

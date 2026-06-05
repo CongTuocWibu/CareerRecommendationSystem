@@ -12,12 +12,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Database tests for RecommendationResultDAO.
- *
- * A throwaway parent profile is created in setUp so that the results have a
- * profile_id to link to, then everything is removed again in tearDown.
- */
+
 public class RecommendationResultDAOTest {
 
     private UserProfileDAO profileDao;

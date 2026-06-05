@@ -7,12 +7,7 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-/**
- * Unit tests for the SkillRule business logic.
- *
- * Verifies the scoring contract: 10 points per required skill that the user has.
- * Uses a custom CareerPath so the test does not depend on the predefined data.
- */
+
 public class SkillRuleTest {
 
     private SkillRule rule;
@@ -21,7 +16,6 @@ public class SkillRuleTest {
     @Before
     public void setUp() {
         rule = new SkillRule();
-        // Career requiring exactly three skills.
         career = new CareerPath("Test Career", Arrays.asList("Java", "Python", "SQL"));
     }
 
@@ -29,7 +23,6 @@ public class SkillRuleTest {
     public void scoresTenPointsPerMatchedSkill() {
         UserProfile user = new UserProfile("Bachelor",
                 Arrays.asList("Java", "SQL"), new ArrayList<>());
-        // 2 of 3 required skills matched -> 20 points
         assertEquals(20, rule.evaluate(user, career));
     }
 
@@ -44,7 +37,6 @@ public class SkillRuleTest {
     public void scoresFullMarksWhenAllSkillsMatch() {
         UserProfile user = new UserProfile("Bachelor",
                 Arrays.asList("Java", "Python", "SQL"), new ArrayList<>());
-        // 3 of 3 -> 30 points
         assertEquals(30, rule.evaluate(user, career));
     }
 
