@@ -11,6 +11,7 @@ public class RecommendationResult {
     private List<String> explanations;
     private int rank;
     private String userReflection;
+    private int id = -1;
 
     public RecommendationResult(String careerName, int score, List<String> explanations) {
         this.careerName = careerName;
@@ -55,11 +56,19 @@ public class RecommendationResult {
     public void setUserReflection(String userReflection) {
         this.userReflection = (userReflection != null) ? userReflection : "";
     }
+    
+    public int getId() {
+        return id;
+    }
 
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getSummary() {
         return String.format("#%d  %-25s  Score: %d", rank, careerName, score);
     }
+    
 
     public String getDetailedView() {
         StringBuilder sb = new StringBuilder();

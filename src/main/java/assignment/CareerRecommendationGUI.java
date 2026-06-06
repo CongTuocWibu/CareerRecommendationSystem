@@ -7,6 +7,10 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import assignment.db.DBManager;
+
 
 public class CareerRecommendationGUI extends JFrame implements ModelListener {
 
@@ -29,7 +33,15 @@ public class CareerRecommendationGUI extends JFrame implements ModelListener {
 
     public CareerRecommendationGUI() {
         super("Career Path Planner — Recommendation System");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                DBManager.shutdown();
+                dispose();
+                System.exit(0);
+            }
+        });
         setSize(950, 640);
         setLocationRelativeTo(null);
 
@@ -265,8 +277,15 @@ public class CareerRecommendationGUI extends JFrame implements ModelListener {
         result.setUserReflection(reflectionArea.getText().trim());
         detailsArea.setText(result.getDetailedView());
         detailsArea.setCaretPosition(0);
-        statusLabel.setText("Reflection saved (in memory) for " + result.getCareerName()
-                + ". Use 'Save to Database' to persist it.");
+
+        boolean persisted = controller.updateReflection(result);
+        if (persisted) {
+            statusLabel.setText("Reflection saved to the database for "
+                    + result.getCareerName() + ".");
+        } else {
+            statusLabel.setText("Reflection saved (in memory) for " + result.getCareerName()
+                    + ". Use 'Save to Database' to persist it.");
+        }
     }
 
     private void onSaveToDatabase() {

@@ -97,7 +97,12 @@ public class DBManager {
         }
     }
 
-
+        public static synchronized void shutdown() {
+        if (instance != null) {
+            instance.close();
+        }
+    }
+    
     public void close() {
         try {
             if (connection != null && !connection.isClosed()) {

@@ -41,7 +41,9 @@ public class RecommendationResultDAO {
 
             try (ResultSet keys = ps.getGeneratedKeys()) {
                 if (keys.next()) {
-                    return keys.getInt(1);
+                    int id = keys.getInt(1);
+                    result.setId(id);   
+                    return id;
                 }
             }
         } catch (SQLException e) {
@@ -127,6 +129,7 @@ public class RecommendationResultDAO {
 
         RecommendationResult result =
             new RecommendationResult(careerName, score, explanations);
+        result.setId(rs.getInt("id"));  
         result.setRank(rank);
         result.setUserReflection(reflection);
         return result;

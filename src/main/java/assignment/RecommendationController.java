@@ -62,8 +62,14 @@ public class RecommendationController {
         notifyListeners();   
         return currentResults;
     }
-
-
+    
+        public boolean updateReflection(RecommendationResult result) {
+        if (result == null || result.getId() <= 0) {
+            return false;
+        }
+        return resultsDao().updateReflection(result.getId(), result.getUserReflection());
+    }
+    
     public int saveToDatabase() {
         if (currentProfile == null || currentResults.isEmpty()) {
             return -1;
