@@ -28,6 +28,12 @@ public class DBManager {
         }
         return instance;
     }
+    
+    public static synchronized void shutdown() {
+        if (instance != null) {
+            instance.close();
+        }
+    }
 
     private void connect() {
         try {
@@ -97,11 +103,6 @@ public class DBManager {
         }
     }
 
-        public static synchronized void shutdown() {
-        if (instance != null) {
-            instance.close();
-        }
-    }
     
     public void close() {
         try {
